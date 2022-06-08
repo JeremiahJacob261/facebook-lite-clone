@@ -27,16 +27,7 @@ function Register() {
 
         const user = userCredential.user;
         // ...
-        signInWithEmailAndPassword(auth,registeremail, registerpassword)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+       console.log(user);
 
       })
       .catch((error) => {
@@ -89,7 +80,7 @@ function Register() {
         <br />
         Already Have an Account ?<Link to="/"> Login</Link>
       </form>
-      <h2>{user.email}</h2>
+      <h2>{}</h2>
     </div>
   );
 }
