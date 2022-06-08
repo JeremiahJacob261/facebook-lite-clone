@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword,onAuthStateChange } from 'firebase/auth';
 const firebaseConfig = {
   apiKey: 'AIzaSyBQOD6MpXV81SJGsyll6lm8hwyYUfCMVkg',
   authDomain: 'jerp-store.firebaseapp.com',
@@ -39,6 +39,9 @@ function Register() {
         // ..
       });
   };
+  onAuthStateChanged(auth,(currentuser) => {
+  setUser(currentuser);
+    } )
   const signOut = async () => {};
   return (
     <div>
@@ -80,7 +83,7 @@ function Register() {
         <br />
         Already Have an Account ?<Link to="/"> Login</Link>
       </form>
-      <h2>{}</h2>
+      <h2>{user.email}</h2>
     </div>
   );
 }
