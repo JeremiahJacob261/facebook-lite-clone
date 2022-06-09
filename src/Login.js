@@ -21,11 +21,13 @@ function Login() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        alert(user.email);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorMessage);
       });
     
   }
@@ -49,11 +51,11 @@ function Login() {
               onChange={getValueP}
             />
             <br />
-            <Link to="/About">
+           
             <button id="login" onClick={login}>
               Login
             </button>
-            </Link>
+          
             <br />
             <subscript>
               dont't have an account? Try <Link to="/Register"> Register</Link>
